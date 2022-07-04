@@ -1,0 +1,13 @@
+.body {
+  my: 80;
+  mx: 4;
+  display: 'flex';
+  flexdirection: 'column';
+  alignitems: 'center';
+}
+
+.title {
+  text-transform: uppercase;
+  color: darkgray;
+  /* color: '#dddddd'; */
+}
