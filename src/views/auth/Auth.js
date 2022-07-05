@@ -27,7 +27,7 @@ function Copyright(props) {
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </Link>
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -85,10 +85,10 @@ export default function SignIn() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
               <Box sx={theme.submitBox}>
                 <Link href="#" variant="body2" fullWidth>
                   Forgot password?
@@ -99,23 +99,50 @@ export default function SignIn() {
                   // fullWidth
                   sx={{ ml: 3, maxWidth: '50%', backgroundColor: 'green' }}
                 >
-                  Sign In
+                  Login
                 </Button>
               </Box>
 
-              <Grid container>
-                <Grid item md>
-                  <Button
-                    type="submit"
+              <Grid sx={{ marginTop: 5 }}>
+                {/* <Box sx={theme.titleBox}> */}
+                <Typography sx={theme.title}>Let's get started</Typography>
+                {/* </Box> */}
+                <Box sx={{ display: '' }}>
+                  <TextField
+                    margin="normal"
+                    required
                     fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2, backgroundColor: 'green' }}
-                  >
-                    Sign In
-                  </Button>
-                </Grid>
+                    name="password"
+                    label="Enter your Email ID"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                  <Box sx={{ marginTop: 2, marginLeft: 5 }}>
+                    <FormControlLabel
+                      control={<Checkbox value="remember" color="primary" />}
+                      label='I Agree with processing my personal data in conformity with the Privacy Policy. When clicking on "Get Started", you also agree with the End User license Agreement.'
+                    />
+                  </Box>
+
+                  <Box sx={theme.submitBox}>
+                    <Button
+                      md
+                      type="submit"
+                      // fullWidth
+                      variant="outlined"
+                      sx={{
+                        mt: 1,
+                        mb: 2,
+                        color: 'green',
+                      }}
+                    >
+                      Sign Up
+                    </Button>
+                  </Box>
+                </Box>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
+              {/* <Copyright sx={{ mt: 5 }} /> */}
             </Box>
           </Box>
         </Grid>
