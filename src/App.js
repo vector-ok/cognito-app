@@ -1,14 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import Amplify, { Hub } from 'aws-amplify';
 // import './App.css';
-import Auth from './views/auth/Auth';
+import Login from './views/login';
+import Dashboard from './views/dashboard';
+
+// import { Auth } from 'aws-amplify';
 
 function App() {
-  return (
-    <div>
-      <Auth />
-    </div>
-  );
+  useEffect(() => {
+    Hub.listen('auth', (event) => {
+      console.log('auth event is ', event);
+      // if (event.payload.event === 'signup_failure') {
+      //   return setCurrentUser(event.payload.data);
+      // }
+    });
+  }, []);
+
+  const [currentUser, setCurrentUser] = useState();
+  const [errorMessage, setErrorMessage] = useState('');
+  return <div>{currentUser ? <Dashboard /> : <Login />}</div>;
 }
 
 export default App;
