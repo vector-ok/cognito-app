@@ -66,10 +66,18 @@ export default function Login() {
 
     try {
       const response = await Auth.signUp(inputs.signupEmail, inputs.password);
-      setMessage('');
+      setMessage(`SUCCESS! You just signed up ${response.user.username}`);
+      let success = message.includes('SUCCESS!');
       console.log('response is ', response);
+      console.log('success is ', success);
+      console.log('res user is ', response.user.username);
+      if (success) {
+        console.log('message includes SUCCESS');
+      } else {
+        console.log('message does not include SUCCESS');
+      }
     } catch (error) {
-      setMessage(`${error}`);
+      setMessage(`ERROR ${error}`);
     }
   };
 
@@ -200,9 +208,12 @@ export default function Login() {
 
                   {message.length > 0 ? (
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                      <Alert severity="error">
-                        {' '}
-                        FAILURE! <br />
+                      <Alert
+                        severity="error"
+                        // severity={message.includes(
+                        //   'SUCCESS' ? 'success' : 'error'
+                        // )}
+                      >
                         {message}
                       </Alert>
                     </Stack>

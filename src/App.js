@@ -7,38 +7,22 @@ import Dashboard from './views/dashboard';
 // import { Auth } from 'aws-amplify';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
   useEffect(() => {
     Hub.listen('auth', (event) => {
       console.log('auth event is ', event);
-      // if (event.payload.event === 'signup_failure') {
-      //   return setCurrentUser(event.payload.data);
-      // }
+      console.log('auth ,essage is ', event.payload.message);
+      console.log('auth payload event is ', event.payload.event);
+      if (event.payload.event === 'signIn') {
+        return setCurrentUser(true);
+      }
+      return setCurrentUser(false);
     });
   }, []);
 
-  const [currentUser, setCurrentUser] = useState();
-  const [errorMessage, setErrorMessage] = useState('');
   return <div>{currentUser ? <Dashboard /> : <Login />}</div>;
 }
 
 export default App;
-
-{
-  /* <div className="App">
-      
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> */
-}
