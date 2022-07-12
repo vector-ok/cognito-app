@@ -43,8 +43,10 @@ const styles = createTheme({
   verticalLine: {
     marginTop: 3,
     marginBottom: 3,
-    // borderRightStyle: 'groove',
-    // borderRightColor: 'white',
+  },
+  fullSize: {
+    width: '100%',
+    height: '100%',
   },
 });
 export default styles;

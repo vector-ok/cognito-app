@@ -27,7 +27,6 @@ export const theme = createTheme({
   title: {
     textTransform: 'uppercase',
     color: 'darkgray',
-    /* color: '#dddddd'; */
   },
 });
 

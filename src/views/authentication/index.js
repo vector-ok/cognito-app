@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import {
   Avatar,
-  Button,
   CssBaseline,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Link,
   Paper,
   Box,
   Grid,
@@ -19,7 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { ThemeProvider } from '@mui/material/styles';
 import styles from './styles';
 
-import { Amplify, Auth } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
 
 import Signup from '../signup';
@@ -31,17 +26,10 @@ Amplify.configure(awsconfig);
 export default function Authentication() {
   const [user, setUser] = useState('');
   const [message, setMessage] = useState(false);
-  const [checked, setChecked] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
-  const [inputs, setInputs] = useState({
-    loginEmail: '',
-    signupEmail: '',
-    password: '',
-  });
 
   const checkUser = (state) => {
     setUser(state);
-    console.log('user is ', user);
   };
 
   const handleSuccess = (state) => {
@@ -50,44 +38,6 @@ export default function Authentication() {
 
   const handleMessage = (state) => {
     setMessage(state);
-  };
-
-  const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
-  const handleInputs = (e) => {
-    inputs[e.target.name] = e.target.value;
-    setInputs({ ...inputs });
-  };
-
-  //   const handleSignup = async (event) => {
-  //     event.preventDefault();
-  //     if (inputs.password === '') {
-  //       inputs.password = '12345678';
-  //     }
-  //     try {
-  //       const response = await Auth.signUp(inputs.signupEmail, inputs.password);
-  //       const username = response.user.username;
-  //       setSignupSuccess(true);
-  //       setMessage(
-  //         `SUCCESS! You just signed up ${username}. Your default password is 12345678. Proceed to Login.`
-  //       );
-  //       console.log('response is ', response);
-  //     } catch (error) {
-  //       setSignupSuccess(false);
-  //       setMessage(`ERROR ${error}`);
-  //     }
-  //   };
-
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    inputs[event.target.name] = event.target.value;
-    setInputs({ ...inputs });
-
-    const response = await Auth.signIn(inputs.loginEmail, inputs.password);
-    console.log('response is ', response);
-    console.log('data is ', inputs.loginEmail);
-    console.log('data is ', inputs.password);
   };
 
   return (

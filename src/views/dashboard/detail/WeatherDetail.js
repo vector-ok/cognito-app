@@ -2,26 +2,13 @@ import React from 'react';
 import { Grid, Box, Typography } from '@mui/material';
 import styles from './styles.js';
 import { colors } from '../../../theme.js';
-// import { Image } from '@mui/icons-material';
 
 function WeatherDetail({ detail }) {
-  console.log('weather detail is ', detail);
   return (
     <Grid>
       <Grid item>
         <Box sx={{ margin: 4 }}>
-          <Grid
-            container
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              backgroundColor: colors.white,
-              padding: 3,
-              textTransform: 'uppercase',
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}
-          >
+          <Grid container sx={styles.detailsSection}>
             <Grid>Details</Grid>
             <Grid>{/* TODO:  add image */}</Grid>
           </Grid>

@@ -1,25 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Avatar,
-  Button,
-  CssBaseline,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Link,
-  Paper,
-  Box,
-  Grid,
-  Alert,
-  Stack,
-  Typography,
-  Slide,
-  LinearProgress,
-} from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { CssBaseline, Paper, Box, Grid, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
-import { Amplify, Auth } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
 
 import styles from './styles';
@@ -39,7 +22,9 @@ export default function Dashboard() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/place');
+      const response = await axios.get(
+        'https://weather-restapi-app.herokuapp.com/api/place'
+      );
       setData(response.data);
     } catch (error) {
       console.error('error is ', error);
@@ -49,7 +34,6 @@ export default function Dashboard() {
   const handleDetail = (state) => {
     setDetail(state);
   };
-  console.log('detail is ', detail);
 
   return (
     <ThemeProvider theme={styles}>
@@ -61,9 +45,6 @@ export default function Dashboard() {
         component="main"
         sx={{
           height: '100vh',
-          // display: 'flex',
-          // justifyContent: 'center',
-          // alignItems: 'center',
         }}
       >
         <CssBaseline />

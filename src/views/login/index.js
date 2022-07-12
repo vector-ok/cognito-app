@@ -37,9 +37,12 @@ export default function Login({ handleSuccess, handleMessage }) {
   let navigate = useNavigate();
 
   useEffect(() => {
-    errorMessage.includes(`UserNotConfirmedException`)
-      ? setConfirm(true)
-      : setConfirm(false);
+    if (errorMessage.includes(`UserNotConfirmedException`)) {
+      handleSuccess(true);
+      return setConfirm(true);
+    }
+    handleSuccess(false);
+    return setConfirm(false);
   }, [errorMessage, confirm]);
 
   const handleInputs = (e) => {
@@ -64,9 +67,7 @@ export default function Login({ handleSuccess, handleMessage }) {
     } catch (error) {
       setErrorMessage(`ERROR ${error}`);
       handleMessage(`ERROR ${error}`);
-      // checkErrorMessage();
-      console.error('login error is ', error);
-      console.log('message includes verification error ', confirm);
+      handleSuccess(false);
     }
   };
 

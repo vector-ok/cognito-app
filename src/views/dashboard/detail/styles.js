@@ -11,6 +11,10 @@ const styles = createTheme({
     fontSize: 14,
     marginBottom: 3,
     textTransform: 'capitalize',
+    backgroundColor: '#4F5151',
+    paddingLeft: 1,
+    color: 'white',
+    // padding: 1,
   },
   detail: {
     marginBottom: 2,
@@ -37,6 +41,15 @@ const styles = createTheme({
   },
   cellProgress: {
     margin: 1,
+  },
+  detailsSection: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    backgroundColor: colors.white,
+    padding: 3,
+    textTransform: 'uppercase',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
 });
 export default styles;
