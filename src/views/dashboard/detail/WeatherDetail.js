@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, Box, Typography } from '@mui/material';
 import styles from './styles.js';
-import { colors } from '../../../theme.js';
 
 function WeatherDetail({ detail }) {
   return (
