@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import Amplify, { Hub } from 'aws-amplify';
-// import './App.css';
-import Login from './views/login';
-import Dashboard from './views/dashboard';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
-// import { Auth } from 'aws-amplify';
+import Amplify, { Hub } from 'aws-amplify';
+import Login from './views/login';
+import Authentication from './views/authentication';
+import Dashboard from './views/dashboard/index';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(false);
@@ -13,7 +18,7 @@ function App() {
   useEffect(() => {
     Hub.listen('auth', (event) => {
       console.log('auth event is ', event);
-      console.log('auth ,essage is ', event.payload.message);
+      console.log('auth message is ', event.payload.message);
       console.log('auth payload event is ', event.payload.event);
       if (event.payload.event === 'signIn') {
         return setCurrentUser(true);
@@ -22,7 +27,17 @@ function App() {
     });
   }, []);
 
-  return <div>{currentUser ? <Dashboard /> : <Login />}</div>;
+  return (
+    <div>
+      <Router>
+        <Routes>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Authentication />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
+// {currentUser ? <Dashboard /> : <Authentication />}

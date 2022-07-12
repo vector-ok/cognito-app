@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-export const theme = createTheme({
+const styles = createTheme({
   formBody: {
     my: 3,
     mx: 4,
@@ -27,13 +27,7 @@ export const theme = createTheme({
   title: {
     textTransform: 'uppercase',
     color: 'darkgray',
-    /* color: '#dddddd'; */
   },
 });
 
-export const colors = {
-  lightGreen: '#84F15F',
-  deepGreen: '#5FB144',
-  green: '#5FA239',
-  white: '#E5E8E3',
-};
+export default styles;
