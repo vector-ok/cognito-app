@@ -14,6 +14,11 @@
     "categories": {
       "auth": {
         "cognitoapp765e3b73": {}
+      },
+      "function": {
+        "cognitoapp765e3b73PostConfirmation": {
+          "GROUP": "registeration"
+        }
       }
     }
   }

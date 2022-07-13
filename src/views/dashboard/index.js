@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import { Amplify } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
+import config from '../../config';
 
 import styles from './styles';
 import Weather from './weather/Weather';
@@ -11,7 +12,7 @@ import MapCell from './map/MapCell';
 import WeatherDetail from './detail/WeatherDetail';
 import axios from 'axios';
 
-Amplify.configure(awsconfig);
+Amplify.configure(config);
 
 export default function Dashboard() {
   const [data, setData] = useState();
