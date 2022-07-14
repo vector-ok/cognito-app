@@ -12,6 +12,7 @@ import MapCell from './map/MapCell';
 import WeatherDetail from './detail/WeatherDetail';
 import axios from 'axios';
 
+// Amplify.configure(awsconfig); // I channged this to the following line in an attempt to use given User Pool details. 
 Amplify.configure(config);
 
 export default function Dashboard() {
