@@ -2,6 +2,7 @@
 
 This project customizes AWS Amplify for authentication and reads a weather data from an API running on the backend. Amplify runs Cognito under the hood and you can setup a User Pool using the Amplify CLI.
 You will also need to provide your Google Map API key for the map to work. 
+Check out the [project](https://master.d2mmmfwm2xtr77.amplifyapp.com/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
