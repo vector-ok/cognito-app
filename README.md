@@ -6,7 +6,8 @@ To get started, clone this repository.
 Run `npm install`.
 Run `npm start`.
 
-You will need to provide your Google Map API key for the map to work. 
+This project uses Customized AWS Amplify for authentication and reads a weather data from an API running on the backend. Amplify runs Cognito under the hood and you can setup a User Pool using the Amplify CLI.
+You will also need to provide your Google Map API key for the map to work. 
 
 ## Available Scripts
 
