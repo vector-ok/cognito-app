@@ -13,7 +13,7 @@ import WeatherDetail from './detail/WeatherDetail';
 import axios from 'axios';
 
 // Amplify.configure(awsconfig); // I channged this to the following line in an attempt to use given User Pool details. 
-Amplify.configure(config);
+Amplify.configure(awsconfig);
 
 export default function Dashboard() {
   const [data, setData] = useState();
